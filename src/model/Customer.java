@@ -16,7 +16,7 @@ public class Customer {
         this.surname = surname;
         this.country = country;
         this.age = age;
-        this.id = "1";
+        this.id = generateID();
     }
 
     public String getName(){
@@ -66,7 +66,10 @@ public class Customer {
         return id.toString();
     }
 
-    public String displayInfo(){
+    public void displayInfo(){
+        System.out.println("Name: " + this.getName() + ", Surname: " + this.getSurname() + ", Country: " + this.country + ", Age: " + this.getAge() + ", Id: " + this.getId());
+    }
+    public String to_String(){
         return ("Name: " + this.getName() + ", Surname: " + this.getSurname() + ", Country: " + this.country + ", Age: " + this.getAge() + ", Id: " + this.getId());
     }
 }

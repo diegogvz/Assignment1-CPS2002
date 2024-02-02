@@ -33,3 +33,4 @@ public class Advert {
         this.width = width;
     }
 }
+
