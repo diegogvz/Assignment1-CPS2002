@@ -1,24 +1,26 @@
 package test;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import src.model.Customer;
 
 public class TestCustomer {
 
-    @BeforeEach
+    Customer customer;
+    @Before
     public void setup(){
-        customer = new customer("john","doe", "Malta", 22);
+        customer = new Customer("john","doe", "Malta", 22);
     }
 
-    @AfterEach
+    @After
     public void teardown(){
         customer = null;
     }
 
     @Test
-    public static void gettersTest(){
+    public  void gettersTest(){
         Assertions.assertEquals("john", customer.getName());
         Assertions.assertEquals("doe", customer.getSurname());
         Assertions.assertEquals("Malta", customer.getCountry());
@@ -26,7 +28,7 @@ public class TestCustomer {
     }
 
     @Test
-    public static void settersTest(){
+    public void settersTest(){
         customer.setName("Mark");
         customer.setSurname("Vella");
         customer.setCountry("Spain");
@@ -38,9 +40,9 @@ public class TestCustomer {
     }
 
     @Test
-    public static void displayInfoTest(){
+    public void displayInfoTest(){
         String aux = customer.getId();
-        Assertions.assertEquals("Name: john, Surname: doe, Country:Malta, " +
-                "Age: 22, Id: " +  aux,customer.displayInfo() );
+        Assertions.assertEquals("Name: john, Surname: doe, Country: Malta, " +
+                "Age: 22, Id: " +  aux, customer.displayInfo() );
     }
 }
