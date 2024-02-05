@@ -5,6 +5,10 @@ public class Advert {
     protected int height;
     protected int width;
 
+    protected String name;
+
+    protected boolean bought;
+
     public Advert() {
 
     }
@@ -31,6 +35,35 @@ public class Advert {
 
     public void setWidth(int width) {
         this.width = width;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Advert: " +
+                "price=" + price +
+                ", height=" + height +
+                ", width=" + width +
+                ", name='" + name + '\'';
+    }
+
+    public void displayInfo(){
+
+    }
+
+    public boolean isBought() {
+        return bought;
+    }
+
+    public void setBought(boolean bought) {
+        this.bought = bought;
     }
 }
 
