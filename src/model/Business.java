@@ -28,6 +28,12 @@ public class Business {
             customerList.get(i).displayInfo();
         }
     }
+    public void readReservations(){
+        for(int i=0;i<reservations.size();i++){
+            System.out.println("Reservation:" + (i+1));
+            reservations.get(i).displayInfo();
+        }
+    }
 
     public void updateAdvert(int i,int price,int height, int width,String name){
         advertList.get(i-1).setPrice(price);
@@ -59,10 +65,6 @@ public class Business {
     }
 
     public void freeAd(Advert a){
-        for (Reservation r : reservations) {
-            if(r.getAdvert().equals(a)){
-                reservations.remove(r);
-            }
-        }
+        reservations.removeIf(r -> r.getAdvert().equals(a));
     }
 }

@@ -241,37 +241,50 @@ public class UI {
 
     public void menuTimetabling(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("These are all the customers in the system.");
-        business.readCustomers();
-        System.out.println("These are all the adverts in the system.");
-        business.readAdvert();
+        System.out.println("1-Reserve add for customer.");
+        System.out.println("2-Delete reservation.");
+        switch (sc.nextInt()){
+            case 1:
+                System.out.println("These are all the customers in the system.");
+                business.readCustomers();
 
-        System.out.println("Which customer you want to use? ");
-        int cus = sc.nextInt();
-        Customer c = business.customerList.get(cus-1);
+                System.out.println("Which customer you want to use? ");
+                int cus = sc.nextInt();
+                Customer c = business.customerList.get(cus-1);
 
-        System.out.println("Which advert you want to buy? ");
-        int ad = sc.nextInt();
-        Advert advert = business.advertList.get(ad-1);
+                System.out.println("These are all the adverts in the system.");
+                business.readAdvert();
 
-        System.out.println("From what date you want to start the reservation? (DD-MM_YY)");
-        String aux = sc.next();
-        String [] s = aux.split("-");
-        int ini_day = Integer.parseInt(s[0]);
-        int ini_month = Integer.parseInt(s[1]);
-        int ini_year = Integer.parseInt(s[2]);
+                System.out.println("Which advert you want to buy? ");
+                int ad = sc.nextInt();
+                Advert advert = business.advertList.get(ad-1);
 
-        System.out.println("From what date you want to end the reservation? (DD-MM_YY)");
-        aux = sc.next();
-        s = aux.split("-");
-        int final_day = Integer.parseInt(s[0]);
-        int final_month = Integer.parseInt(s[1]);
-        int final_year = Integer.parseInt(s[2]);
+                System.out.println("From what date you want to start the reservation? (DD-MM_YY)");
+                String aux = sc.next();
+                String [] s = aux.split("-");
+                int ini_day = Integer.parseInt(s[0]);
+                int ini_month = Integer.parseInt(s[1]);
+                int ini_year = Integer.parseInt(s[2]);
 
-        business.buyAd(ini_day,ini_month,ini_year,final_day,final_month,
-                final_year,c,advert);
+                System.out.println("From what date you want to end the reservation? (DD-MM_YY)");
+                aux = sc.next();
+                s = aux.split("-");
+                int final_day = Integer.parseInt(s[0]);
+                int final_month = Integer.parseInt(s[1]);
+                int final_year = Integer.parseInt(s[2]);
 
-        System.out.println(business.reservations);
-
+                business.buyAd(ini_day,ini_month,ini_year,final_day,final_month,
+                        final_year,c,advert);
+                break;
+            case 2:
+                System.out.println("These are all the reservations in the system\n" +
+                        "Which one you want to delete?");
+                business.readReservations();
+                int number = sc.nextInt();
+                business.reservations.remove(business.reservations.get(number-1));
+                break;
+            default:
+                System.out.println("Introduce a valid number!");
+        }
     }
 }

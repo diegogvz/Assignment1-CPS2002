@@ -88,13 +88,14 @@ public class Reservation {
         this.advert = advert;
     }
 
+    public void displayInfo(){
+        System.out.println(toString());
+    }
     @Override
     public String toString() {
-        return "Reservation{" +
-                "initial date = " + day_initial +"-"+ month_initial +"-"+ year_initial +
+        return "initial date = " + day_initial +"-"+ month_initial +"-"+ year_initial +
                 ", final date = " + day_final +"-"+ month_final +"-"+ year_final +
                 ", customer=" + customer +
-                ", advert=" + advert +
-                '}';
+                ", advert=" + advert ;
     }
 }
