@@ -43,6 +43,6 @@ public class TestCustomer {
     public void displayInfoTest(){
         String aux = customer.getId();
         Assertions.assertEquals("Name: john, Surname: doe, Country: Malta, " +
-                "Age: 22, Id: " +  aux, customer.to_String());
+                "Age: 22, Id: " +  aux, customer.toString());
     }
 }

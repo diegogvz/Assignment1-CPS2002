@@ -69,7 +69,7 @@ public class Customer {
     public void displayInfo(){
         System.out.println("Name: " + this.getName() + ", Surname: " + this.getSurname() + ", Country: " + this.country + ", Age: " + this.getAge() + ", Id: " + this.getId());
     }
-    public String to_String(){
+    public String toString(){
         return ("Name: " + this.getName() + ", Surname: " + this.getSurname() + ", Country: " + this.country + ", Age: " + this.getAge() + ", Id: " + this.getId());
     }
 }

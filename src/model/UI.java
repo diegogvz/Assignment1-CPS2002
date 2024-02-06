@@ -40,7 +40,7 @@ public class UI {
                     case "4":
                         System.out.print("\033[2J\033[H");  //This is for clean the terminal
                         System.out.println("Introduced option 4: Accounting and Reporting");
-
+                        menuReporting();
                         break;
                     case "5":
                         System.out.print("\033[2J\033[H");  //This is for clean the terminal
@@ -285,6 +285,33 @@ public class UI {
                 break;
             default:
                 System.out.println("Introduce a valid number!");
+                break;
+        }
+    }
+
+    public void menuReporting(){
+        System.out.println("1-Show reservations");
+        System.out.println("2-Income report from customer");
+        System.out.println("3-Income report from advert");
+
+        Scanner sc = new Scanner(System.in);
+        int value = sc.nextInt();
+        int aux;
+        switch (value){
+            case 1:
+                business.readReservations();
+                break;
+            case 2:
+                System.out.println("Which customer do you want to use?");
+                business.readCustomers();
+                aux = sc.nextInt();
+                business.incomeReportCustomer(business.customerList.get(aux-1));
+                break;
+            case 3:
+                System.out.println("Which advert do you want to use?");
+                business.readAdvert();
+                aux = sc.nextInt();
+                business.incomeReportAdvert(business.advertList.get(aux-1));
         }
     }
 }

@@ -63,8 +63,37 @@ public class Business {
         }
 
     }
-
     public void freeAd(Advert a){
         reservations.removeIf(r -> r.getAdvert().equals(a));
+    }
+
+    public void incomeReportCustomer(Customer c){
+        System.out.print("Customer data: ");
+        c.displayInfo();
+        int counter = 0;
+        int money = 0;
+        for (Reservation r:reservations
+             ) {
+            if(r.getCustomer().equals(c)) {
+                counter += 1;
+                money += r.getAdvert().getPrice();
+            }
+        }
+        System.out.println("The cutomer has " + counter + "reservations made.");
+        System.out.println("The cutomer is sepending " + money + "€ in total.");
+
+    }
+
+    public void incomeReportAdvert(Advert a){
+        System.out.print("Advert data: ");
+        a.displayInfo();
+        if(a.isBought()){
+            System.out.println("The advert is bought ");
+            a.displayInfo();
+        }
+        else{
+            System.out.println("The advert is not bought");
+        }
+
     }
 }
