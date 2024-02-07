@@ -10,12 +10,10 @@ public class ParkAdvert extends Advert {
         super.width = 30;
         this.name=name;
     }
-
     @Override
     public String getName() {
         return name;
     }
-
     @Override
     public void setName(String name) {
         this.name = name;

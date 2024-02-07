@@ -1,17 +1,21 @@
 package src.model;
 
 
+import java.util.Objects;
 import java.util.Random;
 
 public class Customer {
 
-    protected String name;
-    protected String surname;
-    protected int age;
-    protected String country;
-    protected String id;
+    private String name;
+    private String surname;
+    private int age;
+    private String country;
+    private String id;
 
     public Customer(String name, String surname,String country,int age){
+        if(name.isBlank()||surname.isBlank()||country.isBlank()||age<0){
+            throw new IllegalArgumentException();
+        }
         this.name = name;
         this.surname = surname;
         this.country = country;
@@ -64,6 +68,14 @@ public class Customer {
             id.append(x);
         }
         return id.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(id, customer.id);
     }
 
     public void displayInfo(){

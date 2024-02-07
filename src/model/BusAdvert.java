@@ -15,7 +15,6 @@ public class BusAdvert extends Advert{
     public String getName() {
         return name;
     }
-
     @Override
     public void setName(String name) {
         this.name = name;
