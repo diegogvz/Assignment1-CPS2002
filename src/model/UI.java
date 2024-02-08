@@ -264,9 +264,11 @@ public class UI {
                     System.out.println("These are all the reservations in the system\n" +
                             "Which one you want to delete?");
                     business.readReservations();
-                    int number = sc.nextInt();
-                    business.getReservations().get(number-1).getAdvert().setBought(false);
-                    business.getReservations().remove(business.getReservations().get(number-1));
+                    if(!business.getReservations().isEmpty()){
+                        int number = sc.nextInt();
+                        business.getReservations().get(number-1).getAdvert().setBought(false);
+                        business.getReservations().remove(business.getReservations().get(number-1));
+                    }
                     break;
                 default:
                     System.out.println("Introduce a valid number!");
@@ -291,14 +293,18 @@ public class UI {
             case 2:
                 System.out.println("Which customer do you want to use?");
                 business.readCustomers();
-                aux = sc.nextInt();
-                business.incomeReportCustomer(business.getCustomerList().get(aux-1));
+                if(!business.getCustomerList().isEmpty()){
+                    aux = sc.nextInt();
+                    business.incomeReportCustomer(business.getCustomerList().get(aux-1));
+                }
                 break;
             case 3:
                 System.out.println("Which advert do you want to use?");
                 business.readAdverts();
-                aux = sc.nextInt();
-                business.incomeReportAdvert(business.getAdvertList().get(aux-1));
+                if(!business.getAdvertList().isEmpty()){
+                    aux = sc.nextInt();
+                    business.incomeReportAdvert(business.getAdvertList().get(aux-1));
+                }
                 break;
             default:
                 System.out.println("Introduce a valid number!");
