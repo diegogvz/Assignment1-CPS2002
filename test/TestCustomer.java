@@ -45,4 +45,10 @@ public class TestCustomer {
         Assertions.assertEquals("Name: john, Surname: doe, Country: Malta, " +
                 "Age: 22, Id: " +  aux, customer.toString());
     }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void badCustomerName(){
+        Customer cust = new Customer("","Due","Malta",20);
+
+    }
 }

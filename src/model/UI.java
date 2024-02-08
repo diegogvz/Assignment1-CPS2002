@@ -192,7 +192,7 @@ public class UI {
                     business.readCustomers();
                     System.out.println("Select the customer to delete: ");
                     int del = scanner_delete.nextInt();
-                    business.removeCustomer(del - 1);
+                    business.removeAdvert(del - 1);
                     break;
 
                 default:
